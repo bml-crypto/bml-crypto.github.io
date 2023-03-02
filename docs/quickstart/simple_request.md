@@ -28,7 +28,7 @@ Let's write our first dydx request! Firstly, we will start from public module
 and get specific market data. In this [page](https://dydxprotocol.github.io/v3-teacher/?python#exchange-sources) 
 you can check other markets.
 
-```{code-cell} ipython3
+```python
 from dydx3.constants import MARKET_ETH_USD
 
 markets = client.public.get_markets(MARKET_ETH_USD)
@@ -37,17 +37,40 @@ markets = client.public.get_markets(MARKET_ETH_USD)
 The result of any request to dydx via client is `dydx3.helpers.requests.Response` 
 object. Due to get data you have to call `.data` attribute.
 
-```{code-cell} ipython3
+```python
 markets.data
+```
+
+And you will get something like this:
+
+```text
+{'markets': {'ETH-USD': {'market': 'ETH-USD',
+   'status': 'ONLINE',
+   'baseAsset': 'ETH',
+   'quoteAsset': 'USD',
+   'stepSize': '0.001',
+   'tickSize': '0.1',
+   ...
 ```
 
 In additional, we can get specific market orderbook.
 
-```{code-cell} ipython3
+```python
 orderbook = client.public.get_orderbook(
   market=MARKET_ETH_USD,
 )
 orderbook.data
+```
+
+As result, we will get something like this:
+
+```text
+{'asks': [{'size': '12.627', 'price': '1629.2'},
+  {'size': '22.095', 'price': '1629.4'},
+  {'size': '41.909', 'price': '1629.5'},
+  {'size': '44.373', 'price': '1629.6'},
+  {'size': '63.363', 'price': '1629.7'},
+  ...
 ```
 
 If you want to see other public methods, you can check this [page](https://dydxprotocol.github.io/v3-teacher/?python#public-http-api).
