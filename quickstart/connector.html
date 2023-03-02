@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>123 &#8212; Dydx Guide</title>
+    <title>Create dydx client &#8212; Dydx Guide</title>
   
   
   
@@ -197,6 +197,10 @@ const thebe_selector_output = ".output, .cell_output"
     </div>
   
 
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
   
 
 </div>
@@ -476,7 +480,9 @@ title="Print to PDF"
       
   </ul>
 </div>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
             </div>
@@ -484,20 +490,108 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>123</h1>
+    <h1>Create dydx client</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libs">
+   Import libs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-variables">
+   Create variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-client">
+   Creating client
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
 
             <article class="bd-article" role="main">
               
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter1-part1">
-<span id="id1"></span><h1>123<a class="headerlink" href="#chapter1-part1" title="Permalink to this heading">#</a></h1>
-<p>hey there</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="create-dydx-client">
+<span id="chapter1-part1"></span><h1>Create dydx client<a class="headerlink" href="#create-dydx-client" title="Permalink to this heading">#</a></h1>
+<p>Client - key ingredient, that allows you to interact with dydx via their library,
+so let’s create one.</p>
+<section id="import-libs">
+<h2>Import libs<a class="headerlink" href="#import-libs" title="Permalink to this heading">#</a></h2>
+<p>In order to set up dydx connection, we will use <code class="docutils literal notranslate"><span class="pre">dydx3</span></code> lib, that responsible
+for dydx interacting logic and <code class="docutils literal notranslate"><span class="pre">web3</span></code> lib, that responsible for blockchain
+connection and works inside client.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dydx3</span> <span class="kn">import</span> <span class="n">Client</span>
+<span class="kn">from</span> <span class="nn">web3</span> <span class="kn">import</span> <span class="n">Web3</span><span class="p">,</span> <span class="n">HTTPProvider</span>
+</pre></div>
+</div>
+</section>
+<section id="create-variables">
+<h2>Create variables<a class="headerlink" href="#create-variables" title="Permalink to this heading">#</a></h2>
+<p>These variables configures dydx connection</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HOST</span><span class="o">=</span><span class="s1">&#39;https://api.stage.dydx.exchange&#39;</span>
+<span class="n">WEB3_PROVIDER</span><span class="o">=</span><span class="s1">&#39;https://goerli.infura.io/v3/5a0bd09254d94ac1af88953907f4136c&#39;</span>
+<span class="n">STARK_PRIVATE_KEY</span><span class="o">=</span><span class="s1">&#39;your start_private_key&#39;</span>
+<span class="n">DEFAULT_ETHEREUM_ADDRESS</span><span class="o">=</span><span class="s1">&#39;your ethereum_address&#39;</span>
+<span class="n">NETWORK_ID</span><span class="o">=</span><span class="mi">5</span>
+
+<span class="n">WALLET_ADDRESS</span><span class="o">=</span><span class="s2">&quot;your wallet address&quot;</span>
+<span class="n">KEY</span><span class="o">=</span><span class="s2">&quot;your api_key&quot;</span>
+<span class="n">SECRET</span><span class="o">=</span><span class="s2">&quot;your secret_key&quot;</span>
+<span class="n">PASSPHRASE</span><span class="o">=</span><span class="s2">&quot;your passphrase&quot;</span>
+<span class="n">LEGACY_SIGNING</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">WALLET_TYPE</span><span class="o">=</span><span class="s2">&quot;METAMASK&quot;</span>
+</pre></div>
+</div>
+<p>Let’s figure out what these variables mean. Here we simplify explanation from
+official <a class="reference external" href="https://dydxprotocol.github.io/v3-teacher/?python#client-initialization">documentation</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">HOST</span></code> - as you remember dydx has mainnet and testnet blockchains and in this
+guide we will use testnet, but in future you can change it easily.</p>
+<p><code class="docutils literal notranslate"><span class="pre">WEB3_PROVIDER</span></code> - you need to choose web3 provider which will scan blockchain.
+For example, it can be infura.</p>
+<p><code class="docutils literal notranslate"><span class="pre">STARK_PRIVATE_KEY</span></code> - this key allows dydx platform to identify their users.
+For more information, you can check this <a class="reference external" href="https://help.dydx.exchange/en/articles/4797307-what-is-a-stark-key">page</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">DEFAULT_ETHEREUM_ADDRESS</span></code> - …</p>
+<p><code class="docutils literal notranslate"><span class="pre">NETWORK_ID</span></code> - …</p>
+<p><code class="docutils literal notranslate"><span class="pre">WALLET_ADDRESS</span></code> - …</p>
+<p><code class="docutils literal notranslate"><span class="pre">KEY</span></code> - …</p>
+<p><code class="docutils literal notranslate"><span class="pre">SECRET</span></code> - …</p>
+<p><code class="docutils literal notranslate"><span class="pre">PASSPHRASE</span></code> - …</p>
+<p><code class="docutils literal notranslate"><span class="pre">LEGACY_SIGNING</span></code> - …</p>
+<p><code class="docutils literal notranslate"><span class="pre">WALLET_TYPE</span></code> - …</p>
+</section>
+<section id="creating-client">
+<h2>Creating client<a class="headerlink" href="#creating-client" title="Permalink to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="n">HOST</span><span class="p">,</span>
+    <span class="n">web3</span><span class="o">=</span><span class="n">Web3</span><span class="p">(</span><span class="n">HTTPProvider</span><span class="p">(</span><span class="n">WEB3_PROVIDER</span><span class="p">)),</span>
+    <span class="n">stark_private_key</span><span class="o">=</span><span class="n">STARK_PRIVATE_KEY</span><span class="p">,</span>
+    <span class="n">default_ethereum_address</span><span class="o">=</span><span class="n">DEFAULT_ETHEREUM_ADDRESS</span><span class="p">,</span>
+    <span class="n">network_id</span><span class="o">=</span><span class="n">NETWORK_ID</span><span class="p">,</span>
+    <span class="n">api_key_credentials</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;walletAddress&quot;</span><span class="p">:</span> <span class="n">WALLET_ADDRESS</span><span class="p">,</span>
+        <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="n">KEY</span><span class="p">,</span>
+        <span class="s2">&quot;secret&quot;</span><span class="p">:</span> <span class="n">SECRET</span><span class="p">,</span>
+        <span class="s2">&quot;passphrase&quot;</span><span class="p">:</span> <span class="n">PASSPHRASE</span><span class="p">,</span>
+        <span class="s2">&quot;legacySigning&quot;</span><span class="p">:</span> <span class="n">LEGACY_SIGNING</span><span class="p">,</span>
+        <span class="s2">&quot;walletType&quot;</span><span class="p">:</span> <span class="n">WALLET_TYPE</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -541,6 +635,37 @@ title="Print to PDF"
           </div>
           
           
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libs">
+   Import libs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-variables">
+   Create variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-client">
+   Creating client
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
           
           
         </div>
