@@ -36,12 +36,9 @@ STARK_PRIVATE_KEY='your start_private_key'
 DEFAULT_ETHEREUM_ADDRESS='your ethereum_address'
 NETWORK_ID=5
 
-WALLET_ADDRESS="your wallet address"
 KEY="your api_key"
 SECRET="your secret_key"
 PASSPHRASE="your passphrase"
-LEGACY_SIGNING=False
-WALLET_TYPE="METAMASK"
 ```
 
 Let's figure out what these variables mean. Here we simplify explanation from
@@ -60,17 +57,11 @@ For more information, you can check this [page](https://help.dydx.exchange/en/ar
 
 `NETWORK_ID` - ...
 
-`WALLET_ADDRESS` - ...
-
 `KEY` - ...
 
 `SECRET` - ...
 
 `PASSPHRASE` - ...
-
-`LEGACY_SIGNING` - ...
-
-`WALLET_TYPE` - ...
 
 ### Creating client
 
@@ -82,12 +73,9 @@ client = Client(
     default_ethereum_address=DEFAULT_ETHEREUM_ADDRESS,
     network_id=NETWORK_ID,
     api_key_credentials={
-        "walletAddress": WALLET_ADDRESS,
         "key": KEY,
         "secret": SECRET,
-        "passphrase": PASSPHRASE,
-        "legacySigning": LEGACY_SIGNING,
-        "walletType": WALLET_TYPE
+        "passphrase": PASSPHRASE
     }
 )
 ```
