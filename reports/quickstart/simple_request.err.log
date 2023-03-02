@@ -17,16 +17,15 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from dydx3.constants import MARKET_ETH_USD
-
-markets = client.public.get_markets(MARKET_ETH_USD)
+user = client.private.get_user()
+user.data
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[1], line 3[0m
-[1;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mdydx3[39;00m[38;5;21;01m.[39;00m[38;5;21;01mconstants[39;00m [38;5;28;01mimport[39;00m MARKET_ETH_USD
-[0;32m----> 3[0m markets [38;5;241m=[39m [43mclient[49m[38;5;241m.[39mpublic[38;5;241m.[39mget_markets(MARKET_ETH_USD)
+Cell [0;32mIn[1], line 1[0m
+[0;32m----> 1[0m user [38;5;241m=[39m [43mclient[49m[38;5;241m.[39mprivate[38;5;241m.[39mget_user()
+[1;32m      2[0m user[38;5;241m.[39mdata
 
 [0;31mNameError[0m: name 'client' is not defined
 NameError: name 'client' is not defined
