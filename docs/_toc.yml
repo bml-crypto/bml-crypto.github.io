@@ -7,9 +7,11 @@ parts:
 - caption: 1. PREREQUISITES
   chapters:
   - file: prerequisites/account
-    title: 1.1. Creating account & generating keys
+    title: 1.1. Create account & extract keys
+  - file: prerequisites/node
+    title: 1.2. Generate API for node
   - file: prerequisites/library
-    title: 1.2. Installing python library
+    title: 1.2. Install python library
 - caption: 2. QUICK START
   chapters:
   - file: quickstart/client

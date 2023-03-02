@@ -11,7 +11,7 @@ kernelspec:
 ---
 (chapter1_part1)=
 
-# 1.1. Creating account & generating keys
+# 1.1. Create account & extract keys
 To interact with the dydx protocol, you need to create an account on dydx platform. There are two types of dydx platforms to consider: one on mainnet (https://trade.dydx.exchange) and one on testnet (https://trade.stage.dydx.exchange). In this guide we use the latter platform, as it is identical to the mainnet and allows you to use virtual money to explore the platform without the risk of investing real money. Once you feel confident, the mainnet is the place where you can invest real money for real profits.
 
 ## 1.1.1. Account Creation
@@ -30,16 +30,17 @@ Extract API_KEY_PAIRS and STARK_KEY_PAIRS from dydx.
 
 1. Go to the developer settings on your browser (with Chrome: right-click -> inspect page)
 
-<!-- ![](../_static/img/account_0.png) -->
-![](../_static/gif/client.gif)
-
 2. Open **Application**
 3. In **Storage** -> **Local Storage**, open https://trade.stage.dydx.exchange/ and find API_KEY_PAIRS and STARK_KEY_PAIRS.
     - API_KEY_PAIRS is a Metamask key.
     - STARK_KEY_PAIRS is a Dydx key.
 
   <!-- ![](../_static/img/account_1.png) -->
-4. Save these keys as dictionaries in Python. We will need them later. 
+
+![](../_static/gif/client.gif)
+
+
+Save these JSON keys as dictionaries in Python. We will need them later. 
 
 
 ```{code-cell} ipython3
