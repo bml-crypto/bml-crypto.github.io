@@ -9,9 +9,9 @@ kernelspec:
   language: python
   name: python3
 ---
-(chapter1_part2)=
+(chapter1_part3)=
 
-# 1.2. Installing Python Library
+# 1.3. Install Python Library
 First of all, we have to install dydx library, that allows to connect 
 and interact with dydx.
 

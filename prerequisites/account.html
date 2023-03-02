@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1.1. Creating account &amp; generating keys &#8212; Dydx Guide</title>
+    <title>1.1. Create account &amp; extract keys &#8212; Dydx Guide</title>
   
   
   
@@ -61,7 +61,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'prerequisites/account';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.2. Installing Python Library" href="library.html" />
+    <link rel="next" title="1.2. Connect to Node" href="node.html" />
     <link rel="prev" title="About" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
@@ -138,14 +138,21 @@ const thebe_selector_output = ".output, .cell_output"
         
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="#">
-                        1.1. Creating account & generating keys
+                        1.1. Create account & extract keys
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="node.html">
+                        1.2. Generate API for node
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="library.html">
-                        1.2. Installing python library
+                        1.2. Install python library
                       </a>
                     </li>
                 
@@ -235,14 +242,21 @@ const thebe_selector_output = ".output, .cell_output"
         
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="#">
-                        1.1. Creating account & generating keys
+                        1.1. Create account & extract keys
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="node.html">
+                        1.2. Generate API for node
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="library.html">
-                        1.2. Installing python library
+                        1.2. Install python library
                       </a>
                     </li>
                 
@@ -330,8 +344,9 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. PREREQUISITES</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1.1. Creating account &amp; generating keys</a></li>
-<li class="toctree-l1"><a class="reference internal" href="library.html">1.2. Installing python library</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1.1. Create account &amp; extract keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="node.html">1.2. Generate API for node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library.html">1.2. Install python library</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. QUICK START</span></p>
 <ul class="nav bd-sidenav">
@@ -505,7 +520,7 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1.1. Creating account & generating keys</h1>
+    <h1>1.1. Create account & extract keys</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -534,8 +549,8 @@ title="Print to PDF"
 
             <article class="bd-article" role="main">
               
-  <section class="tex2jax_ignore mathjax_ignore" id="creating-account-generating-keys">
-<span id="chapter1-part1"></span><h1>1.1. Creating account &amp; generating keys<a class="headerlink" href="#creating-account-generating-keys" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="create-account-extract-keys">
+<span id="chapter1-part1"></span><h1>1.1. Create account &amp; extract keys<a class="headerlink" href="#create-account-extract-keys" title="Permalink to this heading">#</a></h1>
 <p>To interact with the dydx protocol, you need to create an account on dydx platform. There are two types of dydx platforms to consider: one on mainnet (<a class="reference external" href="https://trade.dydx.exchange">https://trade.dydx.exchange</a>) and one on testnet (<a class="reference external" href="https://trade.stage.dydx.exchange">https://trade.stage.dydx.exchange</a>). In this guide we use the latter platform, as it is identical to the mainnet and allows you to use virtual money to explore the platform without the risk of investing real money. Once you feel confident, the mainnet is the place where you can invest real money for real profits.</p>
 <section id="account-creation">
 <h2>1.1.1. Account Creation<a class="headerlink" href="#account-creation" title="Permalink to this heading">#</a></h2>
@@ -551,10 +566,6 @@ title="Print to PDF"
 <p>Extract API_KEY_PAIRS and STARK_KEY_PAIRS from dydx.</p>
 <ol class="arabic simple">
 <li><p>Go to the developer settings on your browser (with Chrome: right-click -&gt; inspect page)</p></li>
-</ol>
-<!-- ![](../_static/img/account_0.png) -->
-<p><img alt="" src="../_images/client.gif" /></p>
-<ol class="arabic simple" start="2">
 <li><p>Open <strong>Application</strong></p></li>
 <li><p>In <strong>Storage</strong> -&gt; <strong>Local Storage</strong>, open <a class="reference external" href="https://trade.stage.dydx.exchange/">https://trade.stage.dydx.exchange/</a> and find API_KEY_PAIRS and STARK_KEY_PAIRS.</p>
 <ul class="simple">
@@ -564,9 +575,8 @@ title="Print to PDF"
 </li>
 </ol>
   <!-- ![](../_static/img/account_1.png) -->
-<ol class="arabic simple" start="4">
-<li><p>Save these keys as dictionaries in Python. We will need them later.</p></li>
-</ol>
+<p><img alt="" src="../_images/client.gif" /></p>
+<p>Save these JSON keys as dictionaries in Python. We will need them later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dict with Metamask account creds</span>
@@ -652,10 +662,10 @@ Dydx secret key: 045683f987043e98536470976dbb145d44c1100drd237740d4096e5a21d1e79
           <p class="prev-next-title">About</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="library.html" title="next page">
+  <a class='right-next' id="next-link" href="node.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">1.2. Installing Python Library</p>
+      <p class="prev-next-title">1.2. Connect to Node</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>
