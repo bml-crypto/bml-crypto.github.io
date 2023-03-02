@@ -69,6 +69,9 @@ check this [page](https://dydxprotocol.github.io/v3-teacher/?python#api-key-auth
 
 ### Creating client
 
+If we want to use `public` and `private` dydx apis we should create client
+as follows.
+
 ```python
 client = Client(
     host=HOST,
@@ -83,3 +86,5 @@ client = Client(
     }
 )
 ```
+
+And now we can interact with dydx via our `client`.
