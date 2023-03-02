@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>2.1. Creating dydx client &#8212; Dydx Guide</title>
+    <title>2.1. Create dydx client &#8212; Dydx Guide</title>
   
   
   
@@ -159,14 +159,14 @@ const thebe_selector_output = ".output, .cell_output"
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="#">
-                        2.1. Connecting to dydx client
+                        2.1. Connect to dydx client
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="simple_request.html">
-                        2.2. Creating first request
+                        2.2. Create first request
                       </a>
                     </li>
                 
@@ -263,14 +263,14 @@ const thebe_selector_output = ".output, .cell_output"
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="#">
-                        2.1. Connecting to dydx client
+                        2.1. Connect to dydx client
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="simple_request.html">
-                        2.2. Creating first request
+                        2.2. Create first request
                       </a>
                     </li>
                 
@@ -350,8 +350,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. QUICK START</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2.1. Connecting to dydx client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simple_request.html">2.2. Creating first request</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2.1. Connect to dydx client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_request.html">2.2. Create first request</a></li>
 </ul>
 
     </div>
@@ -520,7 +520,7 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>2.1. Creating dydx client</h1>
+    <h1>2.1. Create dydx client</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -554,8 +554,8 @@ title="Print to PDF"
 
             <article class="bd-article" role="main">
               
-  <section class="tex2jax_ignore mathjax_ignore" id="creating-dydx-client">
-<span id="chapter1-part1"></span><h1>2.1. Creating dydx client<a class="headerlink" href="#creating-dydx-client" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="create-dydx-client">
+<span id="chapter1-part1"></span><h1>2.1. Create dydx client<a class="headerlink" href="#create-dydx-client" title="Permalink to this heading">#</a></h1>
 <p>Client - key ingredient, that allows you to interact with dydx via their library, so let’s create one.</p>
 <section id="import-libs">
 <h2>2.1.1. Import libs<a class="headerlink" href="#import-libs" title="Permalink to this heading">#</a></h2>
@@ -572,29 +572,31 @@ connection and works inside client.</p>
 <p>These variables configures dydx connection</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HOST</span><span class="o">=</span><span class="s1">&#39;https://api.stage.dydx.exchange&#39;</span>
 <span class="n">WEB3_PROVIDER</span><span class="o">=</span><span class="s1">&#39;https://goerli.infura.io/v3/5a0bd09254d94ac1af88953907f4136c&#39;</span>
-<span class="n">STARK_PRIVATE_KEY</span><span class="o">=</span><span class="s1">&#39;your start_private_key&#39;</span>
-<span class="n">DEFAULT_ETHEREUM_ADDRESS</span><span class="o">=</span><span class="s1">&#39;your ethereum_address&#39;</span>
+<span class="n">STARK_PRIVATE_KEY</span><span class="o">=</span><span class="n">STARK_KEY_PAIRS</span><span class="p">[</span><span class="s2">&quot;privateKey&quot;</span><span class="p">]</span>
 <span class="n">NETWORK_ID</span><span class="o">=</span><span class="mi">5</span>
 
-<span class="n">KEY</span><span class="o">=</span><span class="s2">&quot;your api_key&quot;</span>
-<span class="n">SECRET</span><span class="o">=</span><span class="s2">&quot;your secret_key&quot;</span>
-<span class="n">PASSPHRASE</span><span class="o">=</span><span class="s2">&quot;your passphrase&quot;</span>
+<span class="n">KEY</span><span class="o">=</span><span class="n">API_KEY_PAIRS</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span>
+<span class="n">SECRET</span><span class="o">=</span><span class="n">API_KEY_PAIRS</span><span class="p">[</span><span class="s2">&quot;secret&quot;</span><span class="p">]</span>
+<span class="n">PASSPHRASE</span><span class="o">=</span><span class="n">API_KEY_PAIRS</span><span class="p">[</span><span class="s2">&quot;passphrase&quot;</span><span class="p">]</span>
+<span class="n">DEFAULT_ETHEREUM_ADDRESS</span><span class="o">=</span><span class="n">API_KEY_PAIRS</span><span class="p">[</span><span class="s2">&quot;walletAddress&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Let’s figure out what these variables mean. Here we simplify explanation from
 official <a class="reference external" href="https://dydxprotocol.github.io/v3-teacher/?python#client-initialization">documentation</a>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">HOST</span></code> - as you remember dydx has mainnet and testnet blockchains and in this
-guide we will use testnet, but in future you can change it easily.</p>
-<p><code class="docutils literal notranslate"><span class="pre">WEB3_PROVIDER</span></code> - you need to choose web3 provider which will scan blockchain.
-For example, it can be infura.</p>
-<p><code class="docutils literal notranslate"><span class="pre">STARK_PRIVATE_KEY</span></code> - this key allows dydx platform to identify their users.
-For more information, you can check this <a class="reference external" href="https://help.dydx.exchange/en/articles/4797307-what-is-a-stark-key">page</a>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">DEFAULT_ETHEREUM_ADDRESS</span></code> - your ethereum wallet address that linked to your
-dydx account.</p>
-<p><code class="docutils literal notranslate"><span class="pre">NETWORK_ID</span></code> - blockchain ID (1 - mainnet, 5 - testnet).</p>
-<p><code class="docutils literal notranslate"><span class="pre">KEY</span></code> - UUID that identifies your dydx credentials.</p>
-<p><code class="docutils literal notranslate"><span class="pre">SECRET</span></code> - secret string used for HMACs generation.</p>
-<p><code class="docutils literal notranslate"><span class="pre">PASSPHRASE</span></code> - pass phrase used for encrypt/decrypt <code class="docutils literal notranslate"><span class="pre">SECRET</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HOST</span></code> - as you remember dydx has mainnet and testnet blockchains and in this
+guide we will use testnet, but in future you can change it easily.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WEB3_PROVIDER</span></code> - you need to choose web3 provider which will scan blockchain.
+For example, it can be infura.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">STARK_PRIVATE_KEY</span></code> - this key allows dydx platform to identify their users.
+For more information, you can check this <a class="reference external" href="https://help.dydx.exchange/en/articles/4797307-what-is-a-stark-key">page</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEFAULT_ETHEREUM_ADDRESS</span></code> - your ethereum wallet address that linked to your
+dydx account.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NETWORK_ID</span></code> - blockchain ID (1 - mainnet, 5 - testnet).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">KEY</span></code> - UUID that identifies your dydx credentials.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SECRET</span></code> - secret string used for HMACs generation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PASSPHRASE</span></code> - pass phrase used for encrypt/decrypt <code class="docutils literal notranslate"><span class="pre">SECRET</span></code>.</p></li>
+</ul>
 <p>If you want some more details about <code class="docutils literal notranslate"><span class="pre">KEY</span></code>, <code class="docutils literal notranslate"><span class="pre">SECRET</span></code> and <code class="docutils literal notranslate"><span class="pre">PASSPHRASE</span></code>, you can
 check this <a class="reference external" href="https://dydxprotocol.github.io/v3-teacher/?python#api-key-authentication">page</a>.</p>
 </section>

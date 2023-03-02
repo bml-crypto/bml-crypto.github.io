@@ -159,14 +159,14 @@ const thebe_selector_output = ".output, .cell_output"
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../quickstart/client.html">
-                        2.1. Connecting to dydx client
+                        2.1. Connect to dydx client
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../quickstart/simple_request.html">
-                        2.2. Creating first request
+                        2.2. Create first request
                       </a>
                     </li>
                 
@@ -263,14 +263,14 @@ const thebe_selector_output = ".output, .cell_output"
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../quickstart/client.html">
-                        2.1. Connecting to dydx client
+                        2.1. Connect to dydx client
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../quickstart/simple_request.html">
-                        2.2. Creating first request
+                        2.2. Create first request
                       </a>
                     </li>
                 
@@ -350,8 +350,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. QUICK START</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/client.html">2.1. Connecting to dydx client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/simple_request.html">2.2. Creating first request</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/client.html">2.1. Connect to dydx client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/simple_request.html">2.2. Create first request</a></li>
 </ul>
 
     </div>
@@ -563,18 +563,12 @@ title="Print to PDF"
 </section>
 <section id="keys-extraction">
 <h2>1.1.2. Keys Extraction<a class="headerlink" href="#keys-extraction" title="Permalink to this heading">#</a></h2>
-<p>Extract API_KEY_PAIRS and STARK_KEY_PAIRS from dydx.</p>
+<p>Keys play an essential role as they allow your code to execute trades and extract private information on behalf of your account. You will need two set of credentials to extract: Metamask credentials and dydx credentials. This can be done following three simple steps in a browser of your choice.</p>
 <ol class="arabic simple">
-<li><p>Go to the developer settings on your browser (with Chrome: right-click -&gt; inspect page)</p></li>
+<li><p>Go to the developer settings on your browser (in Chrome: right-click -&gt; inspect page)</p></li>
 <li><p>Open <strong>Application</strong></p></li>
-<li><p>In <strong>Storage</strong> -&gt; <strong>Local Storage</strong>, open <a class="reference external" href="https://trade.stage.dydx.exchange/">https://trade.stage.dydx.exchange/</a> and find API_KEY_PAIRS and STARK_KEY_PAIRS.</p>
-<ul class="simple">
-<li><p>API_KEY_PAIRS is a Metamask key.</p></li>
-<li><p>STARK_KEY_PAIRS is a Dydx key.</p></li>
-</ul>
-</li>
+<li><p>In <strong>Storage</strong> -&gt; <strong>Local Storage</strong>, open <a class="reference external" href="https://trade.stage.dydx.exchange/">https://trade.stage.dydx.exchange/</a> and find API_KEY_PAIRS (Metamask creds) and STARK_KEY_PAIRS (dydx creds) in a JSON format.</p></li>
 </ol>
-  <!-- ![](../_static/img/account_1.png) -->
 <p><img alt="" src="../_images/client.gif" /></p>
 <p>Save these JSON keys as dictionaries in Python. We will need them later.</p>
 <div class="cell docutils container">
