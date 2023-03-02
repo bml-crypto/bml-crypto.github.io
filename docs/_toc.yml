@@ -11,7 +11,7 @@ parts:
   - file: prerequisites/node
     title: 1.2. Generate API for node
   - file: prerequisites/library
-    title: 1.2. Install python library
+    title: 1.3. Install python library
 - caption: 2. QUICK START
   chapters:
   - file: quickstart/client
