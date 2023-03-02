@@ -12,5 +12,7 @@ parts:
     title: 1.2. Installing python library
 - caption: 2. QUICK START
   chapters:
-  - file: quickstart/connector
-    title: 2.1. Connecting to Dydx
+  - file: quickstart/client
+    title: 2.1. Connecting to dydx client
+  - file: quickstart/simple_request
+    title: 2.2. Creating first request

@@ -11,12 +11,11 @@ kernelspec:
 ---
 (chapter1_part1)=
 
-# Create dydx client
+# 2.1. Creating dydx client
 
-Client - key ingredient, that allows you to interact with dydx via their library,
-so let's create one.
+Client - key ingredient, that allows you to interact with dydx via their library, so let's create one.
 
-### Import libs
+## 2.1.1. Import libs
 
 In order to set up dydx connection, we will use `dydx3` lib, that responsible
 for dydx interacting logic and `web3` lib, that responsible for blockchain 
@@ -26,7 +25,7 @@ from dydx3 import Client
 from web3 import Web3, HTTPProvider
 ```
 
-### Create variables
+## 2.1.2. Create variables
 
 These variables configures dydx connection
 ```python
@@ -67,7 +66,7 @@ dydx account.
 If you want some more details about `KEY`, `SECRET` and `PASSPHRASE`, you can 
 check this [page](https://dydxprotocol.github.io/v3-teacher/?python#api-key-authentication).
 
-### Creating client
+## 2.1.3. Creating client
 
 If we want to use `public` and `private` dydx apis we should create client
 as follows.
