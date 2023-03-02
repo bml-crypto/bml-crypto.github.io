@@ -61,3 +61,10 @@ STARK_KEY_PAIRS = {
   "walletType": "METAMASK"
 }
 ```
+
+From these dicts you can later easily extract Metamask secret key or Dydx secret key:
+
+```{code-cell} ipython3
+print(f"Metamask secret key: {API_KEY_PAIRS['secret']}")
+print(f"Dydx secret key: {STARK_KEY_PAIRS['privateKey']}")
+```
