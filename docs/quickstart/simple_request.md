@@ -9,7 +9,7 @@ kernelspec:
   language: python
   name: python3
 ---
-(chapter1_part1)=
+(chapter2_part2)=
 
 # 2.2. Creating first request
 
@@ -22,7 +22,7 @@ Before writing requests, we should know about some dydx modules:
 
 If you want more details about modules, you can check this [page](https://dydxprotocol.github.io/v3-teacher/?python#client-initialization).
 
-### 2.2.1. Triggering public API
+## 2.2.1. Triggering public API
 
 Let's write our first dydx request! Firstly, we will start from public module
 and get specific market data. In this [page](https://dydxprotocol.github.io/v3-teacher/?python#exchange-sources) 
@@ -75,7 +75,7 @@ As result, we will get something like this:
 
 If you want to see other public methods, you can check this [page](https://dydxprotocol.github.io/v3-teacher/?python#public-http-api).
 
-### 2.2.2. Triggering private API
+## 2.2.2. Triggering private API
 
 **Attention! If you want to use these endpoints you need at least 
 `api_key_credentials` parameter in your `client` object!**

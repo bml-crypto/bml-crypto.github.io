@@ -9,7 +9,7 @@ kernelspec:
   language: python
   name: python3
 ---
-(chapter1_part1)=
+(chapter2_part1)=
 
 # 2.1. Create dydx client
 
