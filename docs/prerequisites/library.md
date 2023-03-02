@@ -11,7 +11,7 @@ kernelspec:
 ---
 (chapter1_part2)=
 
-# 1. Library Installation
+# 1.2. Installing Python Library
 First of all, we have to install dydx library, that allows to connect 
 and interact with dydx.
 
