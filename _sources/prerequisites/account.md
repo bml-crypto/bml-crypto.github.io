@@ -30,14 +30,15 @@ Extract API_KEY_PAIRS and STARK_KEY_PAIRS from dydx.
 
 1. Go to the developer settings on your browser (with Chrome: right-click -> inspect page)
 
-![](../_static/img/account_0.png)
+<!-- ![](../_static/img/account_0.png) -->
+![](../_static/gif/client.gif)
 
 2. Open **Application**
 3. In **Storage** -> **Local Storage**, open https://trade.stage.dydx.exchange/ and find API_KEY_PAIRS and STARK_KEY_PAIRS.
     - API_KEY_PAIRS is a Metamask key.
     - STARK_KEY_PAIRS is a Dydx key.
 
-  ![](../_static/img/account_1.png)
+  <!-- ![](../_static/img/account_1.png) -->
 4. Save these keys as dictionaries in Python. We will need them later. 
 
 
