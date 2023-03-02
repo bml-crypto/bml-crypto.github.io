@@ -11,7 +11,7 @@ kernelspec:
 ---
 (chapter1_part1)=
 
-# 2.1. Creating dydx client
+# 2.1. Create dydx client
 
 Client - key ingredient, that allows you to interact with dydx via their library, so let's create one.
 
@@ -31,37 +31,30 @@ These variables configures dydx connection
 ```python
 HOST='https://api.stage.dydx.exchange'
 WEB3_PROVIDER='https://goerli.infura.io/v3/5a0bd09254d94ac1af88953907f4136c'
-STARK_PRIVATE_KEY='your start_private_key'
-DEFAULT_ETHEREUM_ADDRESS='your ethereum_address'
+STARK_PRIVATE_KEY=STARK_KEY_PAIRS["privateKey"]
 NETWORK_ID=5
 
-KEY="your api_key"
-SECRET="your secret_key"
-PASSPHRASE="your passphrase"
+KEY=API_KEY_PAIRS["key"]
+SECRET=API_KEY_PAIRS["secret"]
+PASSPHRASE=API_KEY_PAIRS["passphrase"]
+DEFAULT_ETHEREUM_ADDRESS=API_KEY_PAIRS["walletAddress"]
 ```
 
 Let's figure out what these variables mean. Here we simplify explanation from
 official [documentation](https://dydxprotocol.github.io/v3-teacher/?python#client-initialization).
 
-`HOST` - as you remember dydx has mainnet and testnet blockchains and in this 
+- `HOST` - as you remember dydx has mainnet and testnet blockchains and in this 
 guide we will use testnet, but in future you can change it easily.
-
-`WEB3_PROVIDER` - you need to choose web3 provider which will scan blockchain. 
+- `WEB3_PROVIDER` - you need to choose web3 provider which will scan blockchain. 
 For example, it can be infura.
-
-`STARK_PRIVATE_KEY` - this key allows dydx platform to identify their users.
+- `STARK_PRIVATE_KEY` - this key allows dydx platform to identify their users.
 For more information, you can check this [page](https://help.dydx.exchange/en/articles/4797307-what-is-a-stark-key).
-
-`DEFAULT_ETHEREUM_ADDRESS` - your ethereum wallet address that linked to your
+- `DEFAULT_ETHEREUM_ADDRESS` - your ethereum wallet address that linked to your
 dydx account.
-
-`NETWORK_ID` - blockchain ID (1 - mainnet, 5 - testnet).
-
-`KEY` - UUID that identifies your dydx credentials.
-
-`SECRET` - secret string used for HMACs generation.
-
-`PASSPHRASE` - pass phrase used for encrypt/decrypt `SECRET`.
+- `NETWORK_ID` - blockchain ID (1 - mainnet, 5 - testnet).
+- `KEY` - UUID that identifies your dydx credentials.
+- `SECRET` - secret string used for HMACs generation.
+- `PASSPHRASE` - pass phrase used for encrypt/decrypt `SECRET`.
 
 If you want some more details about `KEY`, `SECRET` and `PASSPHRASE`, you can 
 check this [page](https://dydxprotocol.github.io/v3-teacher/?python#api-key-authentication).

@@ -26,16 +26,11 @@ To create an account:
 
 ## 1.1.2. Keys Extraction
 
-Extract API_KEY_PAIRS and STARK_KEY_PAIRS from dydx.
+Keys play an essential role as they allow your code to execute trades and extract private information on behalf of your account. You will need two set of credentials to extract: Metamask credentials and dydx credentials. This can be done following three simple steps in a browser of your choice.
 
-1. Go to the developer settings on your browser (with Chrome: right-click -> inspect page)
-
+1. Go to the developer settings on your browser (in Chrome: right-click -> inspect page)
 2. Open **Application**
-3. In **Storage** -> **Local Storage**, open https://trade.stage.dydx.exchange/ and find API_KEY_PAIRS and STARK_KEY_PAIRS.
-    - API_KEY_PAIRS is a Metamask key.
-    - STARK_KEY_PAIRS is a Dydx key.
-
-  <!-- ![](../_static/img/account_1.png) -->
+3. In **Storage** -> **Local Storage**, open https://trade.stage.dydx.exchange/ and find API_KEY_PAIRS (Metamask creds) and STARK_KEY_PAIRS (dydx creds) in a JSON format.
 
 ![](../_static/gif/client.gif)
 
