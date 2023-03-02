@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>123 &#8212; Dydx Guide</title>
+    <title>1. Account Creation &#8212; Dydx Guide</title>
   
   
   
@@ -199,6 +199,10 @@ const thebe_selector_output = ".output, .cell_output"
   
 
   
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
 
 </div>
   </nav>
@@ -312,7 +316,8 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. PREREQUISITES</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1.1. Creating account &amp; generating keys</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Account Creation</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="library.html">1.2. Installing python library</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. QUICK START</span></p>
@@ -476,7 +481,9 @@ title="Print to PDF"
       
   </ul>
 </div>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
             </div>
@@ -484,42 +491,105 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>123</h1>
+    <h1>1. Account Creation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   1. Account Creation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#keys-extraction">
+   2. Keys Extraction
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
 
             <article class="bd-article" role="main">
               
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter1-part1">
-<span id="id1"></span><h1>123<a class="headerlink" href="#chapter1-part1" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="account-creation">
+<span id="chapter1-part1"></span><h1>1. Account Creation<a class="headerlink" href="#account-creation" title="Permalink to this heading">#</a></h1>
+<p>To interact with the dydx protocol, you need to create an account on dydx platform. There are two types of dydx platforms to consider: one on mainnet (<a class="reference external" href="https://trade.dydx.exchange">https://trade.dydx.exchange</a>) and one on testnet (<a class="reference external" href="https://trade.stage.dydx.exchange">https://trade.stage.dydx.exchange</a>). In this guide we use the latter platform, as it is identical to the mainnet and allows you to use virtual money to explore the platform without the risk of investing real money. Once you feel confident, the mainnet is the place where you can invest real money for real profits.</p>
+<p>To create an account:</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://trade.stage.dydx.exchange/">dydx platform</a> and click <strong>Connect Wallet</strong> on the top right corner.</p></li>
+<li><p>Choose wallet you would like to connect. In this guide we use <a class="reference external" href="https://metamask.io/">Metamask</a>.</p></li>
+<li><p>On Link Wallet window, mark Remember Me flag and sign two requests in Metamask wallet.</p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="keys-extraction">
+<h1>2. Keys Extraction<a class="headerlink" href="#keys-extraction" title="Permalink to this heading">#</a></h1>
+<p>Extract API_KEY_PAIRS and STARK_KEY_PAIRS from dydx.</p>
+<ol class="arabic simple">
+<li><p>Go to the developer settings on your browser (with Chrome: right-click -&gt; inspect page)</p></li>
+<li><p>Open <strong>Application</strong></p></li>
+<li><p>In <strong>Storage</strong> -&gt; <strong>Local Storage</strong>, open <a class="reference external" href="https://trade.stage.dydx.exchange/">https://trade.stage.dydx.exchange/</a> and find API_KEY_PAIRS and STARK_KEY_PAIRS.</p>
+<ul class="simple">
+<li><p>API_KEY_PAIRS is a Metamask key.</p></li>
+<li><p>STARK_KEY_PAIRS is a Dydx key.</p></li>
+</ul>
+</li>
+<li><p>Save these keys. We will need these keys further.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1">#to work with numbers</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Next step is to re-create our hypothetical dataset that we’ve been working with:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">46</span><span class="p">],</span> <span class="p">[</span><span class="mi">60</span><span class="p">],</span> <span class="p">[</span><span class="mi">65</span><span class="p">],</span> <span class="p">[</span><span class="mi">77</span><span class="p">],</span> <span class="p">[</span><span class="mi">95</span><span class="p">]])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">118</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># API_KEY_PAIRS</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;walletAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;0x02WQnO69112bdEB7V6339671e4c36f5F7de82b57&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;secret&quot;</span><span class="p">:</span> <span class="s2">&quot;r3UI_OiC0pmt3ShNz0oiEoHpIXACWwkUC2q1WWHD&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;5xx0dc83-a4cf-6e29-6afa-f21b3i74f347&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;passphrase&quot;</span><span class="p">:</span> <span class="s2">&quot;cV2KiULwiw6RwMgMd35d&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;legacySigning&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+  <span class="s2">&quot;walletType&quot;</span><span class="p">:</span> <span class="s2">&quot;METAMASK&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[30]
- [46]
- [60]
- [65]
- [77]
- [95]]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># API_KEY_PAIRS</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="p">{</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>   <span class="s2">&quot;walletAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;0x02WQnO69112bdEB7V6339671e4c36f5F7de82b57&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>   <span class="s2">&quot;secret&quot;</span><span class="p">:</span> <span class="s2">&quot;r3UI_OiC0pmt3ShNz0oiEoHpIXACWwkUC2q1WWHD&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>   <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;5xx0dc83-a4cf-6e29-6afa-f21b3i74f347&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>   <span class="s2">&quot;passphrase&quot;</span><span class="p">:</span> <span class="s2">&quot;cV2KiULwiw6RwMgMd35d&quot;</span><span class="p">,</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>   <span class="s2">&quot;legacySigning&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>   <span class="s2">&quot;walletType&quot;</span><span class="p">:</span> <span class="s2">&quot;METAMASK&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="p">}</span>
+
+<span class="ne">NameError</span>: name &#39;false&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># STARK_KEY_PAIRS</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;walletAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;0x02WQnO69112bdEB7V6339671e4c36f5F7de82b57&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;publicKey&quot;</span><span class="p">:</span> <span class="s2">&quot;012ecde10e6ddb43b961673d45rtab8c2e93604f34f419b24eef1e80af8347ee&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;publicKeyYCoordinate&quot;</span><span class="p">:</span> <span class="s2">&quot;04bb0cc4efe5eba08f5d35d7310d520093e22804fa562d820e8df0176c0fa371&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;privateKey&quot;</span><span class="p">:</span> <span class="s2">&quot;045683f987043e98536470976dbb145d44c1100drd237740d4096e5a21d1e79c&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;legacySigning&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+  <span class="s2">&quot;walletType&quot;</span><span class="p">:</span> <span class="s2">&quot;METAMASK&quot;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -574,6 +644,32 @@ title="Print to PDF"
           </div>
           
           
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   1. Account Creation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#keys-extraction">
+   2. Keys Extraction
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
           
           
         </div>

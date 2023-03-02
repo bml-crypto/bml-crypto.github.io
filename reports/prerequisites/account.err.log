@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "/home/runner/.cache/pypoetry/virtualenvs/p-dydx-guide-mhLtLSy8-py3.9/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/.cache/pypoetry/virtualenvs/p-dydx-guide-mhLtLSy8-py3.9/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/runner/.cache/pypoetry/virtualenvs/p-dydx-guide-mhLtLSy8-py3.9/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/runner/.cache/pypoetry/virtualenvs/p-dydx-guide-mhLtLSy8-py3.9/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/runner/.cache/pypoetry/virtualenvs/p-dydx-guide-mhLtLSy8-py3.9/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/.cache/pypoetry/virtualenvs/p-dydx-guide-mhLtLSy8-py3.9/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/.cache/pypoetry/virtualenvs/p-dydx-guide-mhLtLSy8-py3.9/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# API_KEY_PAIRS
+
+{
+  "walletAddress": "0x02WQnO69112bdEB7V6339671e4c36f5F7de82b57",
+  "secret": "r3UI_OiC0pmt3ShNz0oiEoHpIXACWwkUC2q1WWHD",
+  "key": "5xx0dc83-a4cf-6e29-6afa-f21b3i74f347",
+  "passphrase": "cV2KiULwiw6RwMgMd35d",
+  "legacySigning": false,
+  "walletType": "METAMASK"
+}
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[1], line 8[0m
+[1;32m      1[0m [38;5;66;03m# API_KEY_PAIRS[39;00m
+[1;32m      3[0m {
+[1;32m      4[0m   [38;5;124m"[39m[38;5;124mwalletAddress[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124m0x02WQnO69112bdEB7V6339671e4c36f5F7de82b57[39m[38;5;124m"[39m,
+[1;32m      5[0m   [38;5;124m"[39m[38;5;124msecret[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124mr3UI_OiC0pmt3ShNz0oiEoHpIXACWwkUC2q1WWHD[39m[38;5;124m"[39m,
+[1;32m      6[0m   [38;5;124m"[39m[38;5;124mkey[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124m5xx0dc83-a4cf-6e29-6afa-f21b3i74f347[39m[38;5;124m"[39m,
+[1;32m      7[0m   [38;5;124m"[39m[38;5;124mpassphrase[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124mcV2KiULwiw6RwMgMd35d[39m[38;5;124m"[39m,
+[0;32m----> 8[0m   [38;5;124m"[39m[38;5;124mlegacySigning[39m[38;5;124m"[39m: [43mfalse[49m,
+[1;32m      9[0m   [38;5;124m"[39m[38;5;124mwalletType[39m[38;5;124m"[39m: [38;5;124m"[39m[38;5;124mMETAMASK[39m[38;5;124m"[39m
+[1;32m     10[0m }
+
+[0;31mNameError[0m: name 'false' is not defined
+NameError: name 'false' is not defined
+
