@@ -15,8 +15,8 @@ kernelspec:
 First of all, we have to install dydx library, that allows to connect 
 and interact with dydx.
 
-```{code-cell} ipython3
-!pip install dydx-v3-python
+```shell
+pip install dydx-v3-python
 ```
 
 Now we prepared to write dydx client and use dydx api in python!
