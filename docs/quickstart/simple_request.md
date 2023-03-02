@@ -74,3 +74,15 @@ As result, we will get something like this:
 ```
 
 If you want to see other public methods, you can check this [page](https://dydxprotocol.github.io/v3-teacher/?python#public-http-api).
+
+### 2.2.2. Triggering private API
+
+**Attention! If you want to use these endpoints you need at least 
+`api_key_credentials` parameter in your `client` object!**
+
+Let's get dydx account info.
+
+```{code-cell} ipython3
+user = client.private.get_user()
+user.data
+```
