@@ -20,7 +20,7 @@ Client - key ingredient, that allows you to interact with dydx via their library
 In order to set up dydx connection, we will use `dydx3` lib, that responsible
 for dydx interacting logic and `web3` lib, that responsible for blockchain 
 connection and works inside client.
-```{code-cell} ipython3
+```python
 from dydx3 import Client
 from web3 import Web3, HTTPProvider
 ```
@@ -28,7 +28,7 @@ from web3 import Web3, HTTPProvider
 ## 2.1.2. Create variables
 
 These variables configures dydx connection
-```{code-cell} ipython3
+```python
 HOST='https://api.stage.dydx.exchange'
 WEB3_PROVIDER='https://goerli.infura.io/v3/5a0bd09254d94ac1af88953907f4136c'
 STARK_PRIVATE_KEY=STARK_KEY_PAIRS["privateKey"]
@@ -64,7 +64,7 @@ check this [page](https://dydxprotocol.github.io/v3-teacher/?python#api-key-auth
 If we want to use `public` and `private` dydx apis we should create client
 as follows.
 
-```{code-cell} ipython3
+```python
 client = Client(
     host=HOST,
     web3=Web3(HTTPProvider(WEB3_PROVIDER)),
