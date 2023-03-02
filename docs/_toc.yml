@@ -7,7 +7,7 @@ parts:
 - caption: 1. PREREQUISITES
   chapters:
   - file: prerequisites/account
-    title: 1.1. Creating account and extracting keys
+    title: 1.1. Creating account & generating keys
   - file: prerequisites/library
     title: 1.2. Installing python library
 - caption: 2. QUICK START
