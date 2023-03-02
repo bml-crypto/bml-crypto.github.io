@@ -136,6 +136,13 @@ const thebe_selector_output = ".output, .cell_output"
     <ul id="navbar-main-elements" class="navbar-nav">
         
                     <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../prerequisites/account.html">
+                        1.1. Creating account & generating keys
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link nav-internal" href="../prerequisites/library.html">
                         1.2. Installing python library
                       </a>
@@ -219,6 +226,13 @@ const thebe_selector_output = ".output, .cell_output"
     <ul id="navbar-main-elements" class="navbar-nav">
         
                     <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../prerequisites/account.html">
+                        1.1. Creating account & generating keys
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
                       <a class="nav-link nav-internal" href="../prerequisites/library.html">
                         1.2. Installing python library
                       </a>
@@ -301,6 +315,8 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. PREREQUISITES</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../prerequisites/account.html">Account Creation</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="../prerequisites/library.html">1.2. Installing python library</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. QUICK START</span></p>
@@ -509,7 +525,7 @@ title="Print to PDF"
             <article class="bd-article" role="main">
               
   <section class="tex2jax_ignore mathjax_ignore" id="create-dydx-client">
-<span id="chapter2-part1"></span><h1>Create dydx client<a class="headerlink" href="#create-dydx-client" title="Permalink to this heading">#</a></h1>
+<span id="chapter1-part1"></span><h1>Create dydx client<a class="headerlink" href="#create-dydx-client" title="Permalink to this heading">#</a></h1>
 <p>Client - key ingredient, that allows you to interact with dydx via their library,
 so let’s create one.</p>
 <section id="import-libs">
@@ -531,12 +547,9 @@ connection and works inside client.</p>
 <span class="n">DEFAULT_ETHEREUM_ADDRESS</span><span class="o">=</span><span class="s1">&#39;your ethereum_address&#39;</span>
 <span class="n">NETWORK_ID</span><span class="o">=</span><span class="mi">5</span>
 
-<span class="n">WALLET_ADDRESS</span><span class="o">=</span><span class="s2">&quot;your wallet address&quot;</span>
 <span class="n">KEY</span><span class="o">=</span><span class="s2">&quot;your api_key&quot;</span>
 <span class="n">SECRET</span><span class="o">=</span><span class="s2">&quot;your secret_key&quot;</span>
 <span class="n">PASSPHRASE</span><span class="o">=</span><span class="s2">&quot;your passphrase&quot;</span>
-<span class="n">LEGACY_SIGNING</span><span class="o">=</span><span class="kc">False</span>
-<span class="n">WALLET_TYPE</span><span class="o">=</span><span class="s2">&quot;METAMASK&quot;</span>
 </pre></div>
 </div>
 <p>Let’s figure out what these variables mean. Here we simplify explanation from
@@ -547,17 +560,19 @@ guide we will use testnet, but in future you can change it easily.</p>
 For example, it can be infura.</p>
 <p><code class="docutils literal notranslate"><span class="pre">STARK_PRIVATE_KEY</span></code> - this key allows dydx platform to identify their users.
 For more information, you can check this <a class="reference external" href="https://help.dydx.exchange/en/articles/4797307-what-is-a-stark-key">page</a>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">DEFAULT_ETHEREUM_ADDRESS</span></code> - …</p>
-<p><code class="docutils literal notranslate"><span class="pre">NETWORK_ID</span></code> - …</p>
-<p><code class="docutils literal notranslate"><span class="pre">WALLET_ADDRESS</span></code> - …</p>
-<p><code class="docutils literal notranslate"><span class="pre">KEY</span></code> - …</p>
-<p><code class="docutils literal notranslate"><span class="pre">SECRET</span></code> - …</p>
-<p><code class="docutils literal notranslate"><span class="pre">PASSPHRASE</span></code> - …</p>
-<p><code class="docutils literal notranslate"><span class="pre">LEGACY_SIGNING</span></code> - …</p>
-<p><code class="docutils literal notranslate"><span class="pre">WALLET_TYPE</span></code> - …</p>
+<p><code class="docutils literal notranslate"><span class="pre">DEFAULT_ETHEREUM_ADDRESS</span></code> - your ethereum wallet address that linked to your
+dydx account.</p>
+<p><code class="docutils literal notranslate"><span class="pre">NETWORK_ID</span></code> - blockchain ID (1 - mainnet, 5 - testnet).</p>
+<p><code class="docutils literal notranslate"><span class="pre">KEY</span></code> - UUID that identifies your dydx credentials.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SECRET</span></code> - secret string used for HMACs generation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">PASSPHRASE</span></code> - pass phrase used for encrypt/decrypt <code class="docutils literal notranslate"><span class="pre">SECRET</span></code>.</p>
+<p>If you want some more details about <code class="docutils literal notranslate"><span class="pre">KEY</span></code>, <code class="docutils literal notranslate"><span class="pre">SECRET</span></code> and <code class="docutils literal notranslate"><span class="pre">PASSPHRASE</span></code>, you can
+check this <a class="reference external" href="https://dydxprotocol.github.io/v3-teacher/?python#api-key-authentication">page</a>.</p>
 </section>
 <section id="creating-client">
 <h2>Creating client<a class="headerlink" href="#creating-client" title="Permalink to this heading">#</a></h2>
+<p>If we want to use <code class="docutils literal notranslate"><span class="pre">public</span></code> and <code class="docutils literal notranslate"><span class="pre">private</span></code> dydx apis we should create client
+as follows.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
     <span class="n">host</span><span class="o">=</span><span class="n">HOST</span><span class="p">,</span>
     <span class="n">web3</span><span class="o">=</span><span class="n">Web3</span><span class="p">(</span><span class="n">HTTPProvider</span><span class="p">(</span><span class="n">WEB3_PROVIDER</span><span class="p">)),</span>
@@ -565,16 +580,14 @@ For more information, you can check this <a class="reference external" href="htt
     <span class="n">default_ethereum_address</span><span class="o">=</span><span class="n">DEFAULT_ETHEREUM_ADDRESS</span><span class="p">,</span>
     <span class="n">network_id</span><span class="o">=</span><span class="n">NETWORK_ID</span><span class="p">,</span>
     <span class="n">api_key_credentials</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;walletAddress&quot;</span><span class="p">:</span> <span class="n">WALLET_ADDRESS</span><span class="p">,</span>
         <span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="n">KEY</span><span class="p">,</span>
         <span class="s2">&quot;secret&quot;</span><span class="p">:</span> <span class="n">SECRET</span><span class="p">,</span>
-        <span class="s2">&quot;passphrase&quot;</span><span class="p">:</span> <span class="n">PASSPHRASE</span><span class="p">,</span>
-        <span class="s2">&quot;legacySigning&quot;</span><span class="p">:</span> <span class="n">LEGACY_SIGNING</span><span class="p">,</span>
-        <span class="s2">&quot;walletType&quot;</span><span class="p">:</span> <span class="n">WALLET_TYPE</span>
+        <span class="s2">&quot;passphrase&quot;</span><span class="p">:</span> <span class="n">PASSPHRASE</span>
     <span class="p">}</span>
 <span class="p">)</span>
 </pre></div>
 </div>
+<p>And now we can interact with dydx via our <code class="docutils literal notranslate"><span class="pre">client</span></code>.</p>
 </section>
 </section>
 

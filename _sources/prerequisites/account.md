@@ -11,8 +11,8 @@ kernelspec:
 ---
 (chapter1_part1)=
 
+# Account Creation
 
-# 1. Account Creation
 To interact with the dydx protocol, you need to create an account on dydx platform. There are two types of dydx platforms to consider: one on mainnet (https://trade.dydx.exchange) and one on testnet (https://trade.stage.dydx.exchange). In this guide we use the latter platform, as it is identical to the mainnet and allows you to use virtual money to explore the platform without the risk of investing real money. Once you feel confident, the mainnet is the place where you can invest real money for real profits.
 
 To create an account:
@@ -23,7 +23,7 @@ To create an account:
 
 
 
-# 2. Keys Extraction
+# Keys Extraction
 
 Extract API_KEY_PAIRS and STARK_KEY_PAIRS from dydx.
 
