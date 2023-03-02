@@ -53,15 +53,19 @@ For example, it can be infura.
 `STARK_PRIVATE_KEY` - this key allows dydx platform to identify their users.
 For more information, you can check this [page](https://help.dydx.exchange/en/articles/4797307-what-is-a-stark-key).
 
-`DEFAULT_ETHEREUM_ADDRESS` - ...
+`DEFAULT_ETHEREUM_ADDRESS` - your ethereum wallet address that linked to your
+dydx account.
 
-`NETWORK_ID` - ...
+`NETWORK_ID` - blockchain ID (1 - mainnet, 5 - testnet).
 
-`KEY` - ...
+`KEY` - UUID that identifies your dydx credentials.
 
-`SECRET` - ...
+`SECRET` - secret string used for HMACs generation.
 
-`PASSPHRASE` - ...
+`PASSPHRASE` - pass phrase used for encrypt/decrypt `SECRET`.
+
+If you want some more details about `KEY`, `SECRET` and `PASSPHRASE`, you can 
+check this [page](https://dydxprotocol.github.io/v3-teacher/?python#api-key-authentication).
 
 ### Creating client
 
