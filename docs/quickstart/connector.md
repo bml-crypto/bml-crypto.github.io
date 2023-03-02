@@ -36,12 +36,9 @@ STARK_PRIVATE_KEY='your start_private_key'
 DEFAULT_ETHEREUM_ADDRESS='your ethereum_address'
 NETWORK_ID=5
 
-WALLET_ADDRESS="your wallet address"
 KEY="your api_key"
 SECRET="your secret_key"
 PASSPHRASE="your passphrase"
-LEGACY_SIGNING=False
-WALLET_TYPE="METAMASK"
 ```
 
 Let's figure out what these variables mean. Here we simplify explanation from
@@ -56,23 +53,24 @@ For example, it can be infura.
 `STARK_PRIVATE_KEY` - this key allows dydx platform to identify their users.
 For more information, you can check this [page](https://help.dydx.exchange/en/articles/4797307-what-is-a-stark-key).
 
-`DEFAULT_ETHEREUM_ADDRESS` - ...
+`DEFAULT_ETHEREUM_ADDRESS` - your ethereum wallet address that linked to your
+dydx account.
 
-`NETWORK_ID` - ...
+`NETWORK_ID` - blockchain ID (1 - mainnet, 5 - testnet).
 
-`WALLET_ADDRESS` - ...
+`KEY` - UUID that identifies your dydx credentials.
 
-`KEY` - ...
+`SECRET` - secret string used for HMACs generation.
 
-`SECRET` - ...
+`PASSPHRASE` - pass phrase used for encrypt/decrypt `SECRET`.
 
-`PASSPHRASE` - ...
-
-`LEGACY_SIGNING` - ...
-
-`WALLET_TYPE` - ...
+If you want some more details about `KEY`, `SECRET` and `PASSPHRASE`, you can 
+check this [page](https://dydxprotocol.github.io/v3-teacher/?python#api-key-authentication).
 
 ### Creating client
+
+If we want to use `public` and `private` dydx apis we should create client
+as follows.
 
 ```python
 client = Client(
@@ -82,12 +80,11 @@ client = Client(
     default_ethereum_address=DEFAULT_ETHEREUM_ADDRESS,
     network_id=NETWORK_ID,
     api_key_credentials={
-        "walletAddress": WALLET_ADDRESS,
         "key": KEY,
         "secret": SECRET,
-        "passphrase": PASSPHRASE,
-        "legacySigning": LEGACY_SIGNING,
-        "walletType": WALLET_TYPE
+        "passphrase": PASSPHRASE
     }
 )
 ```
+
+And now we can interact with dydx via our `client`.
