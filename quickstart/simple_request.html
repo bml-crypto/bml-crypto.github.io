@@ -534,6 +534,11 @@ title="Print to PDF"
    2.2.1. Triggering public API
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#triggering-private-api">
+   2.2.2. Triggering private API
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -595,6 +600,31 @@ object. Due to get data you have to call <code class="docutils literal notransla
 </div>
 <p>If you want to see other public methods, you can check this <a class="reference external" href="https://dydxprotocol.github.io/v3-teacher/?python#public-http-api">page</a>.</p>
 </section>
+<section id="triggering-private-api">
+<h2>2.2.2. Triggering private API<a class="headerlink" href="#triggering-private-api" title="Permalink to this heading">#</a></h2>
+<p><strong>Attention! If you want to use these endpoints you need at least
+<code class="docutils literal notranslate"><span class="pre">api_key_credentials</span></code> parameter in your <code class="docutils literal notranslate"><span class="pre">client</span></code> object!</strong></p>
+<p>Let’s get dydx account info.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">private</span><span class="o">.</span><span class="n">get_user</span><span class="p">()</span>
+<span class="n">user</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">user</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">private</span><span class="o">.</span><span class="n">get_user</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">user</span><span class="o">.</span><span class="n">data</span>
+
+<span class="ne">NameError</span>: name &#39;client&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -651,6 +681,11 @@ object. Due to get data you have to call <code class="docutils literal notransla
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#triggering-public-api">
    2.2.1. Triggering public API
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#triggering-private-api">
+   2.2.2. Triggering private API
   </a>
  </li>
 </ul>
