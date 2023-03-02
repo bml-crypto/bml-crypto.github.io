@@ -11,6 +11,12 @@ kernelspec:
 ---
 (chapter1_part2)=
 
-# 123
-hey there
+# Library installing
+First of all, we have to install dydx library, that allows to connect 
+and interact with dydx.
 
+```shell
+pip install dydx-v3-python
+```
+
+Now we prepared to write dydx client and use dydx api in python!
