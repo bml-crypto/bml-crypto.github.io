@@ -11,7 +11,7 @@ kernelspec:
 ---
 (chapter1_part2)=
 
-# Library installing
+# 1. Library Installation
 First of all, we have to install dydx library, that allows to connect 
 and interact with dydx.
 
