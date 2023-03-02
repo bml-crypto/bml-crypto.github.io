@@ -44,14 +44,17 @@ LEGACY_SIGNING=False
 WALLET_TYPE="METAMASK"
 ```
 
-Let's figure out what these variables mean.
+Let's figure out what these variables mean. Here we simplify explanation from
+official [documentation](https://dydxprotocol.github.io/v3-teacher/?python#client-initialization).
 
 `HOST` - as you remember dydx has mainnet and testnet blockchains and in this 
 guide we will use testnet, but in future you can change it easily.
 
-`WEB3_PROVIDER` - ...
+`WEB3_PROVIDER` - you need to choose web3 provider which will scan blockchain. 
+For example, it can be infura.
 
-`STARK_PRIVATE_KEY` - ...
+`STARK_PRIVATE_KEY` - this key allows dydx platform to identify their users.
+For more information, you can check this [page](https://help.dydx.exchange/en/articles/4797307-what-is-a-stark-key).
 
 `DEFAULT_ETHEREUM_ADDRESS` - ...
 
