@@ -4,9 +4,9 @@
 format: jb-book
 root: intro
 parts:
-- caption: 1. SET-UP
+- caption: 1. PREREQUISITES
   chapters:
-  - file: 1/setup
-    title: 1.1. Initialization
-  - file: 1/setup_2
-    title: 1.2. Another Things
+  - file: prerequisites/account
+    title: 1.1. Creating account and extracting keys
+  - file: prerequisites/library
+    title: 1.2. Installing python library
