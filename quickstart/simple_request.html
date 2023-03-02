@@ -212,6 +212,10 @@ const thebe_selector_output = ".output, .cell_output"
   
 
   
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
 
 </div>
   </nav>
@@ -505,7 +509,9 @@ title="Print to PDF"
       
   </ul>
 </div>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
             </div>
@@ -518,6 +524,19 @@ title="Print to PDF"
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#triggering-public-api">
+   2.2.1. Triggering public API
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -526,6 +545,56 @@ title="Print to PDF"
               
   <section class="tex2jax_ignore mathjax_ignore" id="creating-first-request">
 <span id="chapter1-part1"></span><h1>2.2. Creating first request<a class="headerlink" href="#creating-first-request" title="Permalink to this heading">#</a></h1>
+<p>Now we have all what we need to start interact with dydx.</p>
+<p>Before writing requests, we should know about some dydx modules:</p>
+<ul class="simple">
+<li><p><strong>public</strong> - Public API endpoints. You don’t need authentication.</p></li>
+<li><p><strong>private</strong> - Private API endpoints. Requires authentication.</p></li>
+</ul>
+<p>If you want more details about modules, you can check this <a class="reference external" href="https://dydxprotocol.github.io/v3-teacher/?python#client-initialization">page</a>.</p>
+<section id="triggering-public-api">
+<h2>2.2.1. Triggering public API<a class="headerlink" href="#triggering-public-api" title="Permalink to this heading">#</a></h2>
+<p>Let’s write our first dydx request! Firstly, we will start from public module
+and get specific market data. In this <a class="reference external" href="https://dydxprotocol.github.io/v3-teacher/?python#exchange-sources">page</a>
+you can check other markets.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dydx3.constants</span> <span class="kn">import</span> <span class="n">MARKET_ETH_USD</span>
+
+<span class="n">markets</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">public</span><span class="o">.</span><span class="n">get_markets</span><span class="p">(</span><span class="n">MARKET_ETH_USD</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The result of any request to dydx via client is <code class="docutils literal notranslate"><span class="pre">dydx3.helpers.requests.Response</span></code>
+object. Due to get data you have to call <code class="docutils literal notranslate"><span class="pre">.data</span></code> attribute.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">markets</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>And you will get something like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&#39;markets&#39;: {&#39;ETH-USD&#39;: {&#39;market&#39;: &#39;ETH-USD&#39;,
+   &#39;status&#39;: &#39;ONLINE&#39;,
+   &#39;baseAsset&#39;: &#39;ETH&#39;,
+   &#39;quoteAsset&#39;: &#39;USD&#39;,
+   &#39;stepSize&#39;: &#39;0.001&#39;,
+   &#39;tickSize&#39;: &#39;0.1&#39;,
+   ...
+</pre></div>
+</div>
+<p>In additional, we can get specific market orderbook.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">orderbook</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">public</span><span class="o">.</span><span class="n">get_orderbook</span><span class="p">(</span>
+  <span class="n">market</span><span class="o">=</span><span class="n">MARKET_ETH_USD</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">orderbook</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>As result, we will get something like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&#39;asks&#39;: [{&#39;size&#39;: &#39;12.627&#39;, &#39;price&#39;: &#39;1629.2&#39;},
+  {&#39;size&#39;: &#39;22.095&#39;, &#39;price&#39;: &#39;1629.4&#39;},
+  {&#39;size&#39;: &#39;41.909&#39;, &#39;price&#39;: &#39;1629.5&#39;},
+  {&#39;size&#39;: &#39;44.373&#39;, &#39;price&#39;: &#39;1629.6&#39;},
+  {&#39;size&#39;: &#39;63.363&#39;, &#39;price&#39;: &#39;1629.7&#39;},
+  ...
+</pre></div>
+</div>
+<p>If you want to see other public methods, you can check this <a class="reference external" href="https://dydxprotocol.github.io/v3-teacher/?python#public-http-api">page</a>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -569,6 +638,27 @@ title="Print to PDF"
           </div>
           
           
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#triggering-public-api">
+   2.2.1. Triggering public API
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
           
           
         </div>
