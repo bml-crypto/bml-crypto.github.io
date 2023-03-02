@@ -562,41 +562,45 @@ title="Print to PDF"
 <p>Let’s write our first dydx request! Firstly, we will start from public module
 and get specific market data. In this <a class="reference external" href="https://dydxprotocol.github.io/v3-teacher/?python#exchange-sources">page</a>
 you can check other markets.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dydx3.constants</span> <span class="kn">import</span> <span class="n">MARKET_ETH_USD</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dydx3.constants</span> <span class="kn">import</span> <span class="n">MARKET_ETH_USD</span>
 
 <span class="n">markets</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">public</span><span class="o">.</span><span class="n">get_markets</span><span class="p">(</span><span class="n">MARKET_ETH_USD</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">dydx3.constants</span> <span class="kn">import</span> <span class="n">MARKET_ETH_USD</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">markets</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">public</span><span class="o">.</span><span class="n">get_markets</span><span class="p">(</span><span class="n">MARKET_ETH_USD</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;client&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
 <p>The result of any request to dydx via client is <code class="docutils literal notranslate"><span class="pre">dydx3.helpers.requests.Response</span></code>
 object. Due to get data you have to call <code class="docutils literal notranslate"><span class="pre">.data</span></code> attribute.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">markets</span><span class="o">.</span><span class="n">data</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markets</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
-<p>And you will get something like this:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&#39;markets&#39;: {&#39;ETH-USD&#39;: {&#39;market&#39;: &#39;ETH-USD&#39;,
-   &#39;status&#39;: &#39;ONLINE&#39;,
-   &#39;baseAsset&#39;: &#39;ETH&#39;,
-   &#39;quoteAsset&#39;: &#39;USD&#39;,
-   &#39;stepSize&#39;: &#39;0.001&#39;,
-   &#39;tickSize&#39;: &#39;0.1&#39;,
-   ...
-</pre></div>
+</div>
 </div>
 <p>In additional, we can get specific market orderbook.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">orderbook</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">public</span><span class="o">.</span><span class="n">get_orderbook</span><span class="p">(</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orderbook</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">public</span><span class="o">.</span><span class="n">get_orderbook</span><span class="p">(</span>
   <span class="n">market</span><span class="o">=</span><span class="n">MARKET_ETH_USD</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">orderbook</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
-<p>As result, we will get something like this:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&#39;asks&#39;: [{&#39;size&#39;: &#39;12.627&#39;, &#39;price&#39;: &#39;1629.2&#39;},
-  {&#39;size&#39;: &#39;22.095&#39;, &#39;price&#39;: &#39;1629.4&#39;},
-  {&#39;size&#39;: &#39;41.909&#39;, &#39;price&#39;: &#39;1629.5&#39;},
-  {&#39;size&#39;: &#39;44.373&#39;, &#39;price&#39;: &#39;1629.6&#39;},
-  {&#39;size&#39;: &#39;63.363&#39;, &#39;price&#39;: &#39;1629.7&#39;},
-  ...
-</pre></div>
+</div>
 </div>
 <p>If you want to see other public methods, you can check this <a class="reference external" href="https://dydxprotocol.github.io/v3-teacher/?python#public-http-api">page</a>.</p>
 </section>
@@ -609,17 +613,6 @@ object. Due to get data you have to call <code class="docutils literal notransla
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">private</span><span class="o">.</span><span class="n">get_user</span><span class="p">()</span>
 <span class="n">user</span><span class="o">.</span><span class="n">data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">user</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">private</span><span class="o">.</span><span class="n">get_user</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">user</span><span class="o">.</span><span class="n">data</span>
-
-<span class="ne">NameError</span>: name &#39;client&#39; is not defined
 </pre></div>
 </div>
 </div>

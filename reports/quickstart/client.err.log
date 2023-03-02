@@ -17,17 +17,26 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from dydx3.constants import MARKET_ETH_USD
+HOST='https://api.stage.dydx.exchange'
+WEB3_PROVIDER='https://goerli.infura.io/v3/5a0bd09254d94ac1af88953907f4136c'
+STARK_PRIVATE_KEY=STARK_KEY_PAIRS["privateKey"]
+NETWORK_ID=5
 
-markets = client.public.get_markets(MARKET_ETH_USD)
+KEY=API_KEY_PAIRS["key"]
+SECRET=API_KEY_PAIRS["secret"]
+PASSPHRASE=API_KEY_PAIRS["passphrase"]
+DEFAULT_ETHEREUM_ADDRESS=API_KEY_PAIRS["walletAddress"]
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[1], line 3[0m
-[1;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mdydx3[39;00m[38;5;21;01m.[39;00m[38;5;21;01mconstants[39;00m [38;5;28;01mimport[39;00m MARKET_ETH_USD
-[0;32m----> 3[0m markets [38;5;241m=[39m [43mclient[49m[38;5;241m.[39mpublic[38;5;241m.[39mget_markets(MARKET_ETH_USD)
+Cell [0;32mIn[2], line 3[0m
+[1;32m      1[0m HOST[38;5;241m=[39m[38;5;124m'[39m[38;5;124mhttps://api.stage.dydx.exchange[39m[38;5;124m'[39m
+[1;32m      2[0m WEB3_PROVIDER[38;5;241m=[39m[38;5;124m'[39m[38;5;124mhttps://goerli.infura.io/v3/5a0bd09254d94ac1af88953907f4136c[39m[38;5;124m'[39m
+[0;32m----> 3[0m STARK_PRIVATE_KEY[38;5;241m=[39m[43mSTARK_KEY_PAIRS[49m[[38;5;124m"[39m[38;5;124mprivateKey[39m[38;5;124m"[39m]
+[1;32m      4[0m NETWORK_ID[38;5;241m=[39m[38;5;241m5[39m
+[1;32m      6[0m KEY[38;5;241m=[39mAPI_KEY_PAIRS[[38;5;124m"[39m[38;5;124mkey[39m[38;5;124m"[39m]
 
-[0;31mNameError[0m: name 'client' is not defined
-NameError: name 'client' is not defined
+[0;31mNameError[0m: name 'STARK_KEY_PAIRS' is not defined
+NameError: name 'STARK_KEY_PAIRS' is not defined
 

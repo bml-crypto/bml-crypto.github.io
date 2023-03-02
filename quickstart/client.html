@@ -562,15 +562,21 @@ title="Print to PDF"
 <p>In order to set up dydx connection, we will use <code class="docutils literal notranslate"><span class="pre">dydx3</span></code> lib, that responsible
 for dydx interacting logic and <code class="docutils literal notranslate"><span class="pre">web3</span></code> lib, that responsible for blockchain
 connection and works inside client.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dydx3</span> <span class="kn">import</span> <span class="n">Client</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dydx3</span> <span class="kn">import</span> <span class="n">Client</span>
 <span class="kn">from</span> <span class="nn">web3</span> <span class="kn">import</span> <span class="n">Web3</span><span class="p">,</span> <span class="n">HTTPProvider</span>
 </pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="create-variables">
 <h2>2.1.2. Create variables<a class="headerlink" href="#create-variables" title="Permalink to this heading">#</a></h2>
 <p>These variables configures dydx connection</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">HOST</span><span class="o">=</span><span class="s1">&#39;https://api.stage.dydx.exchange&#39;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HOST</span><span class="o">=</span><span class="s1">&#39;https://api.stage.dydx.exchange&#39;</span>
 <span class="n">WEB3_PROVIDER</span><span class="o">=</span><span class="s1">&#39;https://goerli.infura.io/v3/5a0bd09254d94ac1af88953907f4136c&#39;</span>
 <span class="n">STARK_PRIVATE_KEY</span><span class="o">=</span><span class="n">STARK_KEY_PAIRS</span><span class="p">[</span><span class="s2">&quot;privateKey&quot;</span><span class="p">]</span>
 <span class="n">NETWORK_ID</span><span class="o">=</span><span class="mi">5</span>
@@ -580,6 +586,22 @@ connection and works inside client.</p>
 <span class="n">PASSPHRASE</span><span class="o">=</span><span class="n">API_KEY_PAIRS</span><span class="p">[</span><span class="s2">&quot;passphrase&quot;</span><span class="p">]</span>
 <span class="n">DEFAULT_ETHEREUM_ADDRESS</span><span class="o">=</span><span class="n">API_KEY_PAIRS</span><span class="p">[</span><span class="s2">&quot;walletAddress&quot;</span><span class="p">]</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">HOST</span><span class="o">=</span><span class="s1">&#39;https://api.stage.dydx.exchange&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">WEB3_PROVIDER</span><span class="o">=</span><span class="s1">&#39;https://goerli.infura.io/v3/5a0bd09254d94ac1af88953907f4136c&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">STARK_PRIVATE_KEY</span><span class="o">=</span><span class="n">STARK_KEY_PAIRS</span><span class="p">[</span><span class="s2">&quot;privateKey&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">NETWORK_ID</span><span class="o">=</span><span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">KEY</span><span class="o">=</span><span class="n">API_KEY_PAIRS</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;STARK_KEY_PAIRS&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <p>Let’s figure out what these variables mean. Here we simplify explanation from
 official <a class="reference external" href="https://dydxprotocol.github.io/v3-teacher/?python#client-initialization">documentation</a>.</p>
@@ -604,7 +626,9 @@ check this <a class="reference external" href="https://dydxprotocol.github.io/v3
 <h2>2.1.3. Creating client<a class="headerlink" href="#creating-client" title="Permalink to this heading">#</a></h2>
 <p>If we want to use <code class="docutils literal notranslate"><span class="pre">public</span></code> and <code class="docutils literal notranslate"><span class="pre">private</span></code> dydx apis we should create client
 as follows.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
     <span class="n">host</span><span class="o">=</span><span class="n">HOST</span><span class="p">,</span>
     <span class="n">web3</span><span class="o">=</span><span class="n">Web3</span><span class="p">(</span><span class="n">HTTPProvider</span><span class="p">(</span><span class="n">WEB3_PROVIDER</span><span class="p">)),</span>
     <span class="n">stark_private_key</span><span class="o">=</span><span class="n">STARK_PRIVATE_KEY</span><span class="p">,</span>
@@ -617,6 +641,8 @@ as follows.</p>
     <span class="p">}</span>
 <span class="p">)</span>
 </pre></div>
+</div>
+</div>
 </div>
 <p>And now we can interact with dydx via our <code class="docutils literal notranslate"><span class="pre">client</span></code>.</p>
 </section>
