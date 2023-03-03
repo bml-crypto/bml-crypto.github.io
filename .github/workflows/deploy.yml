@@ -35,8 +35,8 @@ jobs:
     # Build the example book
     - name: Build book
       run: |
+        echo dydx.guide > ./docs/CNAME
         poetry run jupyter-book build ./docs
-        echo dydx.guide > ./docs/CNAME 
     # Deploy html to gh-pages
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.6.1
