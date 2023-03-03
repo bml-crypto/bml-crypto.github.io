@@ -82,7 +82,7 @@ If you want to see other public methods, you can check this [page](https://dydxp
 
 Let's get dydx account info.
 
-```{code-cell} ipython3
+```python
 user = client.private.get_user()
 user.data
 ```
