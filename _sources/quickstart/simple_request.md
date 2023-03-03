@@ -80,9 +80,42 @@ If you want to see other public methods, you can check this [page](https://dydxp
 **Attention! If you want to use these endpoints you need at least 
 `api_key_credentials` parameter in your `client` object!**
 
-Let's get dydx account info.
+Let's get dydx user info.
 
-```{code-cell} ipython3
+```python
 user = client.private.get_user()
 user.data
 ```
+And we will get dydx user info.
+
+```text
+{'user': {'publicId': 'GYUNXSZE',
+  'ethereumAddress': '...',
+  'isRegistered': False,
+  'email': None,
+  'username': None,
+  ...
+```
+
+We have one account, so let's get info about it.
+
+```python
+account = client.private.get_account(API_KEY_PAIRS["walletAddress"])
+account.data
+```
+
+Here info about our account.
+
+```text
+{'account': {'starkKey': 'your_stark_key...',
+  'positionId': 'your_position_id...',
+  'equity': '14590.324063',
+  'freeCollateral': '14197.212668',
+  'pendingDeposits': '0.000000',
+  ...
+```
+
+If you want to see other private methods, you can check this 
+[page](https://dydxprotocol.github.io/v3-teacher/?python#private-http-api).
+
+Now we know, how to use public and private API! It's time to make orders!

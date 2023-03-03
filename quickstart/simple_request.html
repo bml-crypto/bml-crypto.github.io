@@ -614,26 +614,37 @@ object. Due to get data you have to call <code class="docutils literal notransla
 <h2>2.2.2. Triggering private API<a class="headerlink" href="#triggering-private-api" title="Permalink to this heading">#</a></h2>
 <p><strong>Attention! If you want to use these endpoints you need at least
 <code class="docutils literal notranslate"><span class="pre">api_key_credentials</span></code> parameter in your <code class="docutils literal notranslate"><span class="pre">client</span></code> object!</strong></p>
-<p>Let’s get dydx account info.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">private</span><span class="o">.</span><span class="n">get_user</span><span class="p">()</span>
+<p>Let’s get dydx user info.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">private</span><span class="o">.</span><span class="n">get_user</span><span class="p">()</span>
 <span class="n">user</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">user</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">private</span><span class="o">.</span><span class="n">get_user</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">user</span><span class="o">.</span><span class="n">data</span>
-
-<span class="ne">NameError</span>: name &#39;client&#39; is not defined
+<p>And we will get dydx user info.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&#39;user&#39;: {&#39;publicId&#39;: &#39;GYUNXSZE&#39;,
+  &#39;ethereumAddress&#39;: &#39;...&#39;,
+  &#39;isRegistered&#39;: False,
+  &#39;email&#39;: None,
+  &#39;username&#39;: None,
+  ...
 </pre></div>
 </div>
+<p>We have one account, so let’s get info about it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">account</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">private</span><span class="o">.</span><span class="n">get_account</span><span class="p">(</span><span class="n">API_KEY_PAIRS</span><span class="p">[</span><span class="s2">&quot;walletAddress&quot;</span><span class="p">])</span>
+<span class="n">account</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
 </div>
+<p>Here info about our account.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&#39;account&#39;: {&#39;starkKey&#39;: &#39;your_stark_key...&#39;,
+  &#39;positionId&#39;: &#39;your_position_id...&#39;,
+  &#39;equity&#39;: &#39;14590.324063&#39;,
+  &#39;freeCollateral&#39;: &#39;14197.212668&#39;,
+  &#39;pendingDeposits&#39;: &#39;0.000000&#39;,
+  ...
+</pre></div>
 </div>
+<p>If you want to see other private methods, you can check this
+<a class="reference external" href="https://dydxprotocol.github.io/v3-teacher/?python#private-http-api">page</a>.</p>
+<p>Now we know, how to use public and private API! It’s time to make orders!</p>
 </section>
 </section>
 
