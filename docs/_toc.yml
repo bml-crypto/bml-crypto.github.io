@@ -27,7 +27,7 @@ parts:
 - caption: 4. ANALYTICS
   chapters:
   - file: analytics/general
-    title: 4.1. Simple bot
+    title: 4.1. General
   - file: analytics/orders
     title: 4.2. Orders
   - file: analytics/pnl
