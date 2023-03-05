@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1 &#8212; Dydx Guide</title>
+    <title>3.1. Simple order &#8212; Dydx Guide</title>
   
   
   
@@ -523,7 +523,7 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1</h1>
+    <h1>3.1. Simple order</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -534,8 +534,45 @@ title="Print to PDF"
 
             <article class="bd-article" role="main">
               
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter3-part1">
-<span id="id1"></span><h1>1<a class="headerlink" href="#chapter3-part1" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="simple-order">
+<span id="chapter3-part1"></span><h1>3.1. Simple order<a class="headerlink" href="#simple-order" title="Permalink to this heading">#</a></h1>
+<p>In order to execute a simple order, you need to know your <code class="docutils literal notranslate"><span class="pre">position_id</span></code>. This can be found from your account.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">account_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">private</span><span class="o">.</span><span class="n">get_account</span><span class="p">()</span>
+<span class="n">position_id</span> <span class="o">=</span> <span class="n">account_response</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;account&#39;</span><span class="p">][</span><span class="s1">&#39;positionId&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Let’s imagine you want to buy 1 ETH. The order is going to be the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">dydx3.constants</span> <span class="kn">import</span> <span class="n">ORDER_SIDE_BUY</span><span class="p">,</span> <span class="n">ORDER_TYPE_MARKET</span><span class="p">,</span> <span class="n">MARKET_ETH_USD</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">private</span><span class="o">.</span><span class="n">create_order</span><span class="p">(</span>
+        <span class="n">position_id</span><span class="o">=</span><span class="n">position_id</span><span class="p">,</span>
+        <span class="n">market</span><span class="o">=</span><span class="n">MARKET_ETH_USD</span><span class="p">,</span>
+        <span class="n">side</span><span class="o">=</span><span class="n">ORDER_SIDE_BUY</span><span class="p">,</span>
+        <span class="n">order_type</span><span class="o">=</span><span class="n">ORDER_TYPE_MARKET</span><span class="p">,</span>
+        <span class="n">post_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="n">price</span><span class="o">=</span><span class="s2">&quot;9999&quot;</span><span class="p">,</span>
+        <span class="n">limit_fee</span><span class="o">=</span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span>
+        <span class="n">expiration_epoch_seconds</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">+</span><span class="mi">120</span><span class="p">,</span>
+        <span class="n">time_in_force</span><span class="o">=</span><span class="s2">&quot;FOK&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>And the order is created. Now, let’s dive into what each parameter of this method means.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">position_id</span></code> - required for an order to be placed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">market</span></code> - the market you want to trade in. Currently we chose to buy 1 ETH, hence the market is MARKET_ETH_USD</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">side</span></code> - either BUY or SELL. We want to BUY, hence the side is going to be ORDER_SIDE_BUY</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">order_type</span></code> - type of an order to execute. This can be MARKET, LIMIT, STOP_LIMIT, TRAILING_STOP or TAKE_PROFIT.We want to execute a market order, hence ORDER_TYPE_MARKET.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">post_only</span></code> - whether the order should be canceled if it would fill immediately on reaching the matching-engine. This parameter is used for testing purposes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size</span></code> - size of the order, in base currency (i.e. an ETH-USD position of size 1 represents 1 ETH). We want to buy 1 ETH, so the size should be “1”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code> - worst accepted price of the base asset in USD.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">limit_fee</span></code> - is the highest accepted fee for the trade.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expiration_epoch_seconds</span></code> - time at which the order will expire if not filled. This is the Good-Till-Time and is accurate to a granularity of about 15 seconds.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time_in_force</span></code> - (Optional) one of GTT (Good till time), FOK (Fill or kill) or IOC (Immediate or cancel). This will default to GTT.</p></li>
+</ul>
+<p>We will talk about all the parameters in more detail in the next section.</p>
 </section>
 
     <script type="text/x-thebe-config">
