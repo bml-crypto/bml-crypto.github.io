@@ -24,7 +24,7 @@ parts:
     title: 3.1. Execute an order
   - file: orders/param
     title: 3.2. Explore order parameters
-- caption: 4. TRADING BOT DEMO
+- caption: 4. BUILDING A TRADING BOT
   chapters:
   - file: trading_bot_demo/simple_bot
     title: 4.1. Simple bot
