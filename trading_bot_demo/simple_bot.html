@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Dydx Guide</title>
+    <title>5.1. Creating simple trading bot &#8212; Dydx Guide</title>
   
   
   
@@ -61,7 +61,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'trading_bot_demo/simple_bot';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="x" href="../orders/param.html" />
+    <link rel="next" title="5.2. Creating simple strategy" href="simple_strategies.html" />
+    <link rel="prev" title="4.4. TBD" href="../analytics/positions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -189,9 +190,44 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../analytics/general.html">
+                        4.1. Simple bot
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../analytics/orders.html">
+                        4.2. Orders
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../analytics/pnl.html">
+                        4.3. PNL
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../analytics/positions.html">
+                        4.4. Positions
+                      </a>
+                    </li>
+                
+
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="#">
-                        4.1. Simple bot
+                        5.1. Simple bot
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="simple_strategies.html">
+                        5.2. Simple strategies
                       </a>
                     </li>
                 
@@ -240,10 +276,6 @@ const thebe_selector_output = ".output, .cell_output"
     </div>
   
 
-  
-  <label class="sidebar-toggle secondary-toggle" for="__secondary">
-      <span class="fa-solid fa-outdent"></span>
-  </label>
   
 
 </div>
@@ -322,9 +354,44 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../analytics/general.html">
+                        4.1. Simple bot
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../analytics/orders.html">
+                        4.2. Orders
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../analytics/pnl.html">
+                        4.3. PNL
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../analytics/positions.html">
+                        4.4. Positions
+                      </a>
+                    </li>
+                
+
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="#">
-                        4.1. Simple bot
+                        5.1. Simple bot
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="simple_strategies.html">
+                        5.2. Simple strategies
                       </a>
                     </li>
                 
@@ -415,6 +482,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../orders/order.html">3.1. Execute an order</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../orders/param.html">3.2. Explore order parameters</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">4. ANALYTICS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../analytics/general.html">4.1. Simple bot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analytics/orders.html">4.2. Orders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analytics/pnl.html">4.3. PNL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../analytics/positions.html">4.4. Positions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">5. BUILDING A TRADING BOT</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5.1. Simple bot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_strategies.html">5.2. Simple strategies</a></li>
+</ul>
 
     </div>
 </nav>
@@ -453,6 +532,16 @@ const thebe_selector_output = ".output, .cell_output"
         </label>
     </div>
     <div class="header-article__right">
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+  </ul>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="btn btn-sm"
   data-toggle="tooltip"
@@ -474,6 +563,21 @@ title="Fullscreen mode"
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
+      <li><a href="../_sources/trading_bot_demo/simple_bot.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</a>
+      
       <li><a href="../_sources/trading_bot_demo/simple_bot.md" target="_blank"
    class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
@@ -507,9 +611,7 @@ title="Print to PDF"
       
   </ul>
 </div>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
-            <span class="fa-solid fa-list"></span>
-        </label>
+
     </div>
 </div>
             </div>
@@ -517,26 +619,21 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>5.1. Creating simple trading bot</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
 
             <article class="bd-article" role="main">
               
-  
+  <section class="tex2jax_ignore mathjax_ignore" id="creating-simple-trading-bot">
+<span id="chapter5-part1"></span><h1>5.1. Creating simple trading bot<a class="headerlink" href="#creating-simple-trading-bot" title="Permalink to this heading">#</a></h1>
+</section>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -565,12 +662,19 @@ title="Print to PDF"
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="../orders/param.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="../analytics/positions.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">x</p>
+          <p class="prev-next-title">4.4. TBD</p>
       </div>
+  </a>
+  <a class='right-next' id="next-link" href="simple_strategies.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">5.2. Creating simple strategy</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
   </a>
 </div>
             </footer>
@@ -578,22 +682,6 @@ title="Print to PDF"
           </div>
           
           
-          
-            <div class="bd-sidebar-secondary bd-toc">
-              
-<div class="toc-item">
-  
-<div class="tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-</div>
-<nav id="bd-toc-nav" class="page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-</nav>
-</div>
-
-            </div>
           
           
         </div>
