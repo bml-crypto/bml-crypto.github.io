@@ -24,7 +24,19 @@ parts:
     title: 3.1. Execute an order
   - file: orders/param
     title: 3.2. Explore order parameters
-- caption: 4. BUILDING A TRADING BOT
+- caption: 4. ANALYTICS
+  chapters:
+  - file: analytics/general
+    title: 4.1. Simple bot
+  - file: analytics/orders
+    title: 4.2. Orders
+  - file: analytics/pnl
+    title: 4.3. PNL
+  - file: analytics/positions
+    title: 4.4. Positions
+- caption: 5. BUILDING A TRADING BOT
   chapters:
   - file: trading_bot_demo/simple_bot
-    title: 4.1. Simple bot
+    title: 5.1. Simple bot
+  - file: trading_bot_demo/simple_strategies
+    title: 5.2. Simple strategies

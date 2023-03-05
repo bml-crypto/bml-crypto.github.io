@@ -9,6 +9,6 @@ kernelspec:
   language: python
   name: python3
 ---
-(chapter5_part1)=
+(chapter5_part2)=
 
-# 5.1. Creating simple trading bot
+# 5.2. Creating simple strategy
