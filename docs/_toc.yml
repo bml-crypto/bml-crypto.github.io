@@ -27,16 +27,16 @@ parts:
 - caption: 4. ANALYTICS
   chapters:
   - file: analytics/general
-    title: 4.1. General
+    title: 4.1. Extract general data
   - file: analytics/orders
-    title: 4.2. Orders
+    title: 4.2. Extract orders data
   - file: analytics/pnl
-    title: 4.3. PNL
+    title: 4.3. Extract PNL data
   - file: analytics/positions
-    title: 4.4. Positions
+    title: 4.4. Extract positions data
 - caption: 5. BUILDING A TRADING BOT
   chapters:
   - file: trading_bot_demo/simple_bot
-    title: 5.1. Simple bot
+    title: 5.1. Building a simple bot
   - file: trading_bot_demo/simple_strategies
-    title: 5.2. Simple strategies
+    title: 5.2. Creating a simple strategy
